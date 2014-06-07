@@ -37,21 +37,28 @@
             function ($scope, $routeParams, TrackLogEntry) {
                 $scope.showLoader = true;
 
-                TrackLogEntry.query({userId: $routeParams.userId}, function (entries) {
-                    var sortedData = {}, dates = [];
-                    angular.forEach(entries, function (entry) {
-                        var splittedDate = entry.created_at.split(' ');
-                        if (!sortedData[splittedDate[0]]) {
-                            sortedData[splittedDate[0]] = [];
-                            dates.push(splittedDate[0]);
-                        }
-                        sortedData[splittedDate[0]].push(entry);
-                    });
+                TrackLogEntry.query(
+                    {userId: $routeParams.userId},
+                    function (entries) {
+                        var sortedData = {}, dates = [];
+                        angular.forEach(entries, function (entry) {
+                            var splittedDate = entry.created_at.split(' ');
+                            if (!sortedData[splittedDate[0]]) {
+                                sortedData[splittedDate[0]] = [];
+                                dates.push(splittedDate[0]);
+                            }
+                            sortedData[splittedDate[0]].push(entry);
+                        });
 
-                    $scope.dates = dates;
-                    $scope.data = sortedData;
-                    $scope.showLoader = false;
-                })
+                        $scope.dates = dates;
+                        $scope.data = sortedData;
+                        $scope.showLoader = false;
+                    },
+                    function (response) {
+                        $scope.error = response;
+                        $scope.showLoader = false;
+                    }
+                )
 
             }
         ]

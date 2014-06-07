@@ -21,3 +21,6 @@
 </div>
 
 <loading visible="showLoader"></loading>
+<div class="text-danger" ng-show="error">
+    Loading data failed: {{error.status}} {{error.statusText}}
+</div>

@@ -1,0 +1,136 @@
+
+body {
+  padding-top: 51px;
+}
+.navbar-toggle {
+  float: left;
+  margin-left: 15px;
+}
+
+.search-wrap {
+  margin: 8px 80px 0 74px;
+}
+.search-wrap .form-group {
+  margin-bottom: 0;
+}
+.barcode {
+  float: right;
+  display: block;
+  margin: 7px 15px 0 0;
+}
+.barcode img {
+  height: 34px;
+}
+.item h4 {
+  margin: 0;
+  padding-top: 0;
+  font-size: 15px;
+  font-weight: bold
+}
+.item p {
+  color: #999;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+.content .row {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-top: 1px solid #ddd;
+}
+.row.date-row {
+  border: 1px solid #ddd;
+  border-bottom: none;
+  background: #eee;
+  font-size: 13px;
+  padding-top: 8px;
+  padding-bottom: 8px;  
+  color: #999;
+}
+.center {
+  text-align: center;
+}
+
+.add-field-wrap {
+  padding-bottom: 15px;
+  position: relative;
+}
+.add-field-wrap .fa-microphone {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 28px;
+  color: #333;
+}
+.search-form .form-group {
+  position: relative;
+}
+.search-form .form-group .form-control {
+  padding-left: 27px;
+}
+.search-form .form-group .glyphicon-search {
+  position: absolute;
+  left: 8px;
+  top: 10px;
+  color: #999;
+}
+@media (min-width: 768px) {
+  .navbar-header {
+   
+  }
+  .search-wrap {
+    margin-left: -15px;
+  }
+  .content-wrap {
+    width: 500px;
+  }
+  .btn-add {
+    width: auto !important;
+  }
+}
+.btn-add { 
+  padding: 6px 0 0 0;
+  width: 77px;
+  line-height: 20px;
+  float: right;
+}
+.btn-add a {
+  display: block;
+  color: #fff;
+  font-size: 25px;
+  background: #5CB85C;
+  width: 38px;
+  height: 38px;
+  line-height: 41px;
+  margin: 0 auto;
+  border-radius: 23px;
+  -webkit-border-radius: 23px;
+  -moz-border-radius: 23px;
+  text-align: center;
+}
+
+.content .center .btn-info,
+.content .center .btn-warning {
+  width: 60px;
+  margin-left: auto;
+
+}
+.total-calories {
+  float: right;
+  width: 61px;
+  text-align: center;
+}
+.btn-calories {
+  float: right;
+  width: 61px;
+  text-align: center; 
+}
+.right {
+  text-align: right;
+}
+
+
+
+.navbar-toggle {
+  margin-left: 8px;
+}

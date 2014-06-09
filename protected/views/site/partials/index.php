@@ -15,7 +15,13 @@
                 >
                 {{item.parsed_calories ? (item.parsed_calories | number : 0) : '!'}}
             </a>
-            <h4>{{item.query}}</h4>
+            <h4>
+                <span ng-show="item.parsed_brand_name">
+                    {{item.parsed_brand_name}} |
+                </span>
+
+                {{item.parsed_item_name || item.query}}
+            </h4>
 
             <p>
                 <span ng-show="item.parsed_serving && item.parsed_serving_qty">

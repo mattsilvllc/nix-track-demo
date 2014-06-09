@@ -1,7 +1,7 @@
 <div ng-repeat="date in dates | orderBy : 'toString()' : true">
     <div class="row date-row">
         <div class="col-md-12">
-            <div class="total-calories">{{totalCalories[date]  | number : 0}}</div>
+            <div class="total-calories">{{totalCalories[date] | number : 0}}</div>
             {{date | date: 'EEEE, M/d'}}
         </div>
     </div>
@@ -16,14 +16,16 @@
                 {{item.parsed_calories ? (item.parsed_calories | number : 0) : '!'}}
             </a>
             <h4>
-                <span ng-show="item.parsed_brand_name">
-                    {{item.parsed_brand_name}} |
-                </span>
-
-                {{item.parsed_item_name || item.query}}
+                {{item.query}}
             </h4>
 
             <p>
+                <span ng-show="item.parsed_brand_name">
+                    {{item.parsed_brand_name}}
+                </span>
+
+                <span ng-show="item.parsed_brand_name && item.parsed_serving && item.parsed_serving_qty">|</span>
+
                 <span ng-show="item.parsed_serving && item.parsed_serving_qty">
                     {{item.parsed_serving_qty}} {{item.parsed_serving}}
                 </span>

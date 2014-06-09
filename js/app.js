@@ -41,7 +41,7 @@
                     var sum = 0;
 
                     angular.forEach(items, function (item) {
-                        sum += item.parsed_calories || 0;
+                        sum += item.parsed_calories ? parseFloat(item.parsed_calories) : 0;
                     });
 
                     return sum;
@@ -50,22 +50,24 @@
                 TrackLogEntry.query(
                     {userId: $routeParams.userId},
                     function (entries) {
-                        var sortedData = {}, dates = {};
+                        var sortedData = {}, dates = [], totalCalories = {};
                         angular.forEach(entries, function (entry) {
                             var splittedDate = entry.created_at.split(' ');
                             if (!sortedData[splittedDate[0]]) {
+                                dates.push(splittedDate[0]);
                                 sortedData[splittedDate[0]] = [];
-                                dates[splittedDate[0]] = 0;
+                                totalCalories[splittedDate[0]] = 0;
                             }
 
                             sortedData[splittedDate[0]].push(entry);
                         });
 
-                        angular.forEach(dates, function(value, index){
-                            dates[index] = $scope.getTotalCalories(sortedData[index]);
+                        angular.forEach(dates, function(date){
+                            totalCalories[date] = $scope.getTotalCalories(sortedData[date]);
                         });
 
                         $scope.dates = dates;
+                        $scope.totalCalories = totalCalories;
                         $scope.data = sortedData;
                         $scope.showLoader = false;
                     },

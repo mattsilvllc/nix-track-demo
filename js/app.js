@@ -62,7 +62,7 @@
                             sortedData[splittedDate[0]].push(entry);
                         });
 
-                        angular.forEach(dates, function(date){
+                        angular.forEach(dates, function (date) {
                             totalCalories[date] = $scope.getTotalCalories(sortedData[date]);
                         });
 
@@ -81,6 +81,28 @@
         ]
     );
 
+    module.filter(
+        'upperFirstLetters',
+        [
+            function () {
+                return function (input) {
+                    if(input){
+                        input = input.toString();
+                        var parts = input.split(' '), result = [];
+
+                        angular.forEach(parts, function (part) {
+                            result.push(part[0].toUpperCase() + part.substring(1));
+                        });
+
+                        return result.join(' ');
+                    }
+
+                    return '';
+                }
+            }
+        ]
+    );
+
     module.directive('loading', [
         function () {
             return {
@@ -91,5 +113,5 @@
                 link:     function (scope) {}
             }
         }
-    ])
+    ]);
 }());
